@@ -1715,7 +1715,11 @@ a:focus {
     background: url(../../../assets/onepage2/img/bg/bg_slider3.jpg);
     background-size: cover;
     background-position: center center; }
-  .carousel .carousel-title-v1 {
+  .carousel .carousel-item-four {
+    background: url(../../../assets/onepage2/img/bg/bg_slider4.jpg);
+    background-size: cover;
+    background-position: center center; }
+s  .carousel .carousel-title-v1 {
     color: #fff; }
   .carousel .carousel-title-v2 {
     color: #fff; }

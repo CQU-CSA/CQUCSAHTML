@@ -271,7 +271,7 @@ a:focus {
   min-height: 50px;
   border-radius: 0;
   box-shadow: none;
-  border-color: #3b4e5f;
+  border-color: #53666e;
   background: transparent; }
   .form-control:-moz-placeholder {
     color: #516473; }
@@ -280,7 +280,7 @@ a:focus {
   .form-control:-ms-input-placeholder {
     color: #516473; }
   .form-control::-webkit-input-placeholder {
-    color: #516473; }
+    color: #53666e; }
   .form-control:focus {
     box-shadow: none;
     border-color: #3b4e5f; }
@@ -1309,7 +1309,7 @@ a:focus {
   height: auto;
   overflow: hidden;
   padding: 100px 0 100px 0;
-  background: url(../../../assets/onepage2/img/bg/bg_parallax.jpg) 50% 0 fixed;
+  background: url("../../../assets/onepage2/img/bg/bg_slider2_bk.jpg") 50% 0 fixed;
   background-size: cover;
   background-position: center center;
   /* Team Members */
@@ -1549,7 +1549,7 @@ a:focus {
 	[FOOTER]
 ----------------------------------------------------*/
 .footer {
-  background: #2c3a46;
+  background: url("../../../assets/onepage2/img/bg/footer_slider.png");
   padding: 100px 0 100px 0; }
 
 /*--------------------------------------------------

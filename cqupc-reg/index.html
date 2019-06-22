@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>重庆大学第十六届程序设计大赛</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <style>
+      .container {
+        max-width: 960px;
+      }
+      .lh-condensed { line-height: 1.25; }
+
+    </style>
+    <script src="https://recaptcha.net/recaptcha/api.js?render=6Lec0ZwUAAAAAGkcTydY2_U9Tmkz-zJhkleYIPTb"></script>
+  </head>
+  <body class="bg-light">
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>重庆大学第十六届程序设计大赛</h2>
+        <h2>报名</h2>
+      </div>
+      <div class="row">
+        <div class="order-md-1 col-md">
+          <h4 class="mb-3">队长信息</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="text">队名</label>
+                <input type="text" class="form-control" id="teamname" placeholder="" value="" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="name">姓名</label>
+                <input type="text" class="form-control" id="name" placeholder="" value="" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label>学号</label>
+                <input type="text" class="form-control" id="stuid" placeholder="" value="" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="sex">性别</label>
+                <select class="custom-select d-block w-100" id="sex" required>
+                  <option value="0">男</option>
+                  <option value="1">女</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="email">邮箱</label>
+                <input type="email" class="form-control" id="email" placeholder="">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="phone">手机</label>
+                <input type="number" class="form-control" id="phone" placeholder="" value="" required>
+              </div>
+            </div>
+          <h4 class="mb-3">队员1信息</h4>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label>姓名</label>
+                <input type="text" class="form-control" id="name1" placeholder="" value="" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label>学号</label>
+                <input type="text" class="form-control" id="stuid1" placeholder="" value="" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="sex">性别</label>
+                <select class="custom-select d-block w-100" id="sex1" required>
+                  <option value="0">男</option>
+                  <option value="1">女</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label>手机</label>
+                <input type="number" class="form-control" id="phone1" placeholder="" value="" required>
+              </div>
+            </div>
+          <h4 class="mb-3">队员2信息</h4>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label>姓名</label>
+                <input type="text" class="form-control" id="name2" placeholder="" value="" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label>学号</label>
+                <input type="text" class="form-control" id="stuid2" placeholder="" value="" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="sex">性别</label>
+                <select class="custom-select d-block w-100" id="sex2" required>
+                  <option value="0">男</option>
+                  <option value="1">女</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label>手机</label>
+                <input type="number" class="form-control" id="phone2" placeholder="" value="" required>
+              </div>
+            </div>
+          <button id="btn0" class="btn btn-primary btn-lg btn-block" type="submit">提交</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      var recaptcha_token = "";
+      grecaptcha.ready(function() {
+        grecaptcha.execute('6Lec0ZwUAAAAAGkcTydY2_U9Tmkz-zJhkleYIPTb', {action: 'homepage'}).then(function(token) {
+          recaptcha_token = token;
+        });
+      });
+      $("#btn0").click(function(){
+        $("#btn0").attr("disabled",true);
+        grecaptcha.execute('6Lec0ZwUAAAAAGkcTydY2_U9Tmkz-zJhkleYIPTb', {action: 'homepage'}).then(function(token) {
+          recaptcha_token = token;
+        });
+        $.ajax({
+          type: "POST",
+          url: "submit.php",
+          dataType: 'json',
+          data: {
+            "teamname": $("#teamname").val(),
+            "name": $("#name").val(),
+            "stuid": $("#stuid").val(),
+            "sex": $("#sex").val(),
+            "email": $("#email").val(),
+            "phone": $("#phone").val(),
+            "name1": $("#name1").val(),
+            "stuid1": $("#stuid1").val(),
+            "sex1": $("#sex1").val(),
+            "phone1": $("#phone1").val(),
+            "name2": $("#name2").val(),
+            "stuid2": $("#stuid2").val(),
+            "sex2": $("#sex2").val(),
+            "phone2": $("#phone2").val(),
+            "recaptcha":recaptcha_token
+          },
+          success: function(data) {
+            if (data.stat != 1) {
+              alert(data.msg);
+              $("#btn0").attr("disabled",false);
+            }
+            else {
+              alert("报名成功");
+              window.location.replace("success.php?recaptcha="+data.recaptcha);
+            }
+          },
+          error: function() {
+            alert("网络错误");
+            $("#btn0").attr("disabled",false);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
